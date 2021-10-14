@@ -14,8 +14,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 var number = [1000, 2000, 3000, 4000]
 
-app.get('/heroku logs --tail', (req, res) => {
-    res.send(number);
+app.get('/getNumbers', (req, res) => {
+    res.json(data: number);
 });
 app.post('/addNumber', (req, res) => {
     if (!req.body.number) {
