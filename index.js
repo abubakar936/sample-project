@@ -15,7 +15,7 @@ app.use(express.json());
 var number = [1000, 2000, 3000, 4000]
 
 app.get('/getNumbers', (req, res) => {
-    res.json(data: number);
+    res.json({data: number});
 });
 app.post('/addNumber', (req, res) => {
     if (!req.body.number) {
