@@ -17,7 +17,14 @@ var number = [1000, 2000, 3000, 4000]
 app.get('/getNumbers', (req, res) => {
     res.json({ data: number });
 });
-app.post('/addNumber/:number', (req, res) => {
+app.post('/addNumber', (req, res) => {
+    if (!req.body.number) {
+        return res.status(400).json({ message: "please add number" })
+    }
+    number.push(req.body.number)
+    return res.status(200).json({ data: number })
+})
+app.get('/add_Number/:number', (req, res) => {
     if (!req.params.number) {
         return res.status(400).json({ message: "please add number" })
     }
