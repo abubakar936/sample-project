@@ -15,13 +15,13 @@ app.use(express.json());
 var number = [1000, 2000, 3000, 4000]
 
 app.get('/getNumbers', (req, res) => {
-    res.json({data: number});
+    res.json({ data: number });
 });
-app.post('/addNumber', (req, res) => {
-    if (!req.body.number) {
+app.post('/addNumber/:number', (req, res) => {
+    if (!req.params.number) {
         return res.status(400).json({ message: "please add number" })
     }
-    number.push(req.body.number)
+    number.push(req.params.number)
     return res.status(200).json({ data: number })
 })
 app.get('/', (req, res) => {
